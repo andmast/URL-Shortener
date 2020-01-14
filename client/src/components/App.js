@@ -1,13 +1,7 @@
 import React from "react";
-import Header from "./Layouts/Header";
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      App
-    </div>
-  );
+  return <div className="App">App</div>;
 }
 
 export default App;
