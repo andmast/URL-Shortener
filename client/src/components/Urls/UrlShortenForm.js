@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
+import axios from "axios";
+import validUrL from "valid-url";
 
 function UrlForm() {
+  const dataBaseUrl = "http://localhost:5000/api/url/shorten";
   const [longUrl, setLongUrl] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (longUrl) {
-      console.log(longUrl);
+    if (validUrL.isUri(longUrl)) {
+      console.log("posting long url");
+      axios
+        .post(dataBaseUrl, {
+          longUrl: longUrl
+        })
+        .then(res => console.log(res));
     }
   };
 

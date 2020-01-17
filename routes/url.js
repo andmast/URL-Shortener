@@ -7,6 +7,15 @@ const config = require("config");
 // Load URL Model
 const Url = require("../models/Url");
 
+router.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 // @route     POST /api/url/shorten
 // @desc      Create short URL
 router.post("/shorten", (req, res) => {
