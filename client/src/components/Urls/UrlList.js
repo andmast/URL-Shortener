@@ -9,7 +9,6 @@ const UrlList = () => {
     axios
       .get(dataBaseUrl)
       .then(urlList => {
-        console.log(urlList);
         setUrls(urlList.data);
       })
       .catch(err => {
@@ -23,17 +22,15 @@ const UrlList = () => {
 
   return (
     <div>
-      <p>
-        {urls.map(url => {
-          return (
-            <div key={url._id}>
-              <p>
-                {url.longUrl} | {url.shortUrl} | {url.date}
-              </p>
-            </div>
-          );
-        })}
-      </p>
+      {urls.map(url => {
+        return (
+          <div key={url._id}>
+            <p>
+              {url.longUrl} | {url.shortUrl} | {url.date} | {url.visits}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };
