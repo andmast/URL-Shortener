@@ -16,7 +16,13 @@ router.use((req, res, next) => {
   next();
 });
 
-// @route     POST /api/url/shorten
+// @route     GET /api/urls/
+// @desc      Get urls list
+router.get("/", (req, res) => {
+  Url.find().then(doc => res.json(doc));
+});
+
+// @route     POST /api/urls/shorten
 // @desc      Create short URL
 router.post("/shorten", (req, res) => {
   const { longUrl } = req.body;
