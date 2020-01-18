@@ -4,7 +4,7 @@ import axios from "axios";
 import validUrL from "valid-url";
 
 function UrlForm() {
-  const dataBaseUrl = "http://localhost:5000/api/url/shorten";
+  const dataBaseUrl = "http://localhost:5000/api/urls/shorten";
   const [longUrl, setLongUrl] = useState("");
 
   const handleSubmit = e => {
