@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@material-ui/core";
+import { Input, Button } from "semantic-ui-react";
+
 import axios from "axios";
 import validUrL from "valid-url";
 
@@ -15,22 +16,23 @@ function UrlForm() {
         .post(dataBaseUrl, {
           longUrl: longUrl
         })
-        .then(res => console.log(res));
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        id="outlined-basic"
-        label="Submit your url"
-        variant="outlined"
+    <form
+      onSubmit={handleSubmit}
+      style={{ margin: "5em 10em 0em", width: "70%", height: "40%" }}
+    >
+      <Input
+        placeholder="Submit your url"
         value={longUrl}
         onChange={e => setLongUrl(e.target.value)}
+        fluid
       />
-      <Button size="medium" variant="contained" color="primary" type="submit">
-        Send
-      </Button>
+      <Button type="submit">Send</Button>
     </form>
   );
 }
