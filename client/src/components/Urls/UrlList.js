@@ -26,7 +26,11 @@ const UrlList = () => {
         return (
           <div key={url._id}>
             <p>
-              {url.longUrl} | {url.shortUrl} | {url.date} | {url.visits}
+              {url.longUrl} |{" "}
+              <a href={url.shortUrl} target="_blank" rel="noopener noreferrer">
+                {url.shortUrl}
+              </a>
+              | {url.date} | {url.visits}
             </p>
           </div>
         );
