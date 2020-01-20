@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Container, Table, Segment } from "semantic-ui-react";
 
-const UrlList = () => {
+function UrlList() {
   const dataBaseUrl = "http://localhost:5000/api/urls/";
   const [urls, setUrls] = useState([]);
 
@@ -21,22 +22,33 @@ const UrlList = () => {
   }, []);
 
   return (
-    <div>
-      {urls.map(url => {
-        return (
-          <div key={url._id}>
-            <p>
-              {url.longUrl} |{" "}
-              <a href={url.shortUrl} target="_blank" rel="noopener noreferrer">
-                {url.shortUrl}
-              </a>
-              | {url.date} | {url.visits}
-            </p>
-          </div>
-        );
-      })}
-    </div>
+    <Segment>
+      <Container>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Long Url</Table.HeaderCell>
+              <Table.HeaderCell>Short Url</Table.HeaderCell>
+              <Table.HeaderCell>Date Created</Table.HeaderCell>
+              <Table.HeaderCell>Number of visits</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {urls.map(url => {
+              return (
+                <Table.Row>
+                  <Table.Cell>{url.longUrl}</Table.Cell>
+                  <Table.Cell>{url.shortUrl}</Table.Cell>
+                  <Table.Cell>{url.date}</Table.Cell>
+                  <Table.Cell>{url.visits}</Table.Cell>
+                </Table.Row>
+              );
+            })}
+          </Table.Body>
+        </Table>
+      </Container>
+    </Segment>
   );
-};
+}
 
 export default UrlList;
