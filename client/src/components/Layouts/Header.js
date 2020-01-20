@@ -1,12 +1,31 @@
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { Menu, Container, Dropdown } from "semantic-ui-react";
 
 export default props => (
-  <AppBar position="static">
-    <Toolbar>
-      <Typography variant="h1" color="inherit">
-        Short.ly
-      </Typography>
-    </Toolbar>
-  </AppBar>
+  <div>
+    <Menu fixed="top" inverted size="massive">
+      <Container>
+        <Menu.Item header>Short.ly</Menu.Item>
+        <Menu.Item>Home</Menu.Item>
+
+        <Dropdown item simple text="Dropdown">
+          <Dropdown.Menu>
+            <Dropdown.Item>List Item</Dropdown.Item>
+            <Dropdown.Item>List Item</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Header>Header Item</Dropdown.Header>
+            <Dropdown.Item>
+              <i className="dropdown icon" />
+              <span className="text">Submenu</span>
+              <Dropdown.Menu>
+                <Dropdown.Item>List Item</Dropdown.Item>
+                <Dropdown.Item>List Item</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown.Item>
+            <Dropdown.Item>List Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Container>
+    </Menu>
+  </div>
 );
