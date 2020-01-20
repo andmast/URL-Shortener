@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button } from "semantic-ui-react";
+import { Header, Input, Form, Segment } from "semantic-ui-react";
 
 import axios from "axios";
 import validUrL from "valid-url";
@@ -22,18 +22,23 @@ function UrlForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ margin: "5em 10em 0em", width: "70%", height: "40%" }}
-    >
-      <Input
-        placeholder="Submit your url"
-        value={longUrl}
-        onChange={e => setLongUrl(e.target.value)}
-        fluid
-      />
-      <Button type="submit">Send</Button>
-    </form>
+    <Segment inverted>
+      <Form onSubmit={handleSubmit} style={{ margin: "5em" }}>
+        <Input
+          placeholder="Submit your url"
+          value={longUrl}
+          onChange={e => setLongUrl(e.target.value)}
+          fluid
+          action={{
+            color: "green",
+            labelPosition: "right",
+            icon: "send",
+            content: "Shorten",
+            size: "massive"
+          }}
+        />
+      </Form>
+    </Segment>
   );
 }
 
