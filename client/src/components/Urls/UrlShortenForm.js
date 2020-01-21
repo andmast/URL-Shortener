@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header, Input, Form, Segment } from "semantic-ui-react";
+import { Input, Form, Segment, Message } from "semantic-ui-react";
 
 import axios from "axios";
 import validUrL from "valid-url";
@@ -7,6 +7,7 @@ import validUrL from "valid-url";
 function UrlForm() {
   const dataBaseUrl = "http://localhost:5000/api/urls/shorten";
   const [longUrl, setLongUrl] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -17,7 +18,13 @@ function UrlForm() {
           longUrl: longUrl
         })
         .then(res => console.log(res))
-        .catch(err => console.log(err));
+        .catch(err => {
+          setErrors("API Server Down");
+          console.log(err);
+        });
+      setErrors("");
+    } else {
+      setErrors("Please provide Valid Url with HTTP(S)");
     }
   };
 
@@ -37,6 +44,7 @@ function UrlForm() {
             size: "massive"
           }}
         />
+        {errors && <Message header="Error!" content={errors} color="red" />}
       </Form>
     </Segment>
   );
