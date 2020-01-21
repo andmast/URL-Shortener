@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Table, Segment } from "semantic-ui-react";
+import { Container, Table, Segment, Message } from "semantic-ui-react";
 
 function UrlList() {
   const dataBaseUrl = "http://localhost:5000/api/urls/";
@@ -34,16 +34,20 @@ function UrlList() {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {urls.map(url => {
-              return (
-                <Table.Row>
-                  <Table.Cell>{url.longUrl}</Table.Cell>
-                  <Table.Cell>{url.shortUrl}</Table.Cell>
-                  <Table.Cell>{url.date}</Table.Cell>
-                  <Table.Cell>{url.visits}</Table.Cell>
-                </Table.Row>
-              );
-            })}
+            {urls.length > 0 ? (
+              urls.map(url => {
+                return (
+                  <Table.Row>
+                    <Table.Cell>{url.longUrl}</Table.Cell>
+                    <Table.Cell>{url.shortUrl}</Table.Cell>
+                    <Table.Cell>{url.date}</Table.Cell>
+                    <Table.Cell>{url.visits}</Table.Cell>
+                  </Table.Row>
+                );
+              })
+            ) : (
+              <Message header="Error!" content="Server Down" color="red" />
+            )}
           </Table.Body>
         </Table>
       </Container>
