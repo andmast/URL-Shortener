@@ -17,19 +17,21 @@ function UrlForm() {
         .post(dataBaseUrl, {
           longUrl: longUrl
         })
-        .then(res => console.log(res))
+        .then(res => {
+          setErrors("");
+          console.log(res);
+        })
         .catch(err => {
           setErrors("API Server Down");
           console.log(err);
         });
-      setErrors("");
     } else {
       setErrors("Please provide Valid Url with HTTP(S)");
     }
   };
 
   return (
-    <Segment inverted>
+    <Segment size="massive" inverted>
       <Form onSubmit={handleSubmit} style={{ margin: "5em" }}>
         <Input
           placeholder="Submit your url"
