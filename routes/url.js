@@ -7,6 +7,13 @@ const config = require("config");
 // Load URL Model
 const Url = require("../models/Url");
 
+const dateOptions = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+};
+
 router.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -43,7 +50,7 @@ router.post("/shorten", (req, res) => {
       longUrl,
       shortUrl,
       urlCode,
-      date: new Date()
+      date: new Date().toLocaleDateString("en-US", dateOptions)
     });
 
     url
