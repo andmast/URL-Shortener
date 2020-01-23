@@ -4,7 +4,8 @@ import { Input, Form, Segment, Message } from "semantic-ui-react";
 import axios from "axios";
 import validUrL from "valid-url";
 
-function UrlForm() {
+function UrlForm(props) {
+  const { handleNewUrl } = props;
   const dataBaseUrl = "http://localhost:5000/api/urls/shorten";
   const [longUrl, setLongUrl] = useState("");
   const [errors, setErrors] = useState("");
@@ -22,6 +23,8 @@ function UrlForm() {
           setShortUrl(res.data.shortUrl);
           setErrors("");
           console.log(res.data.shortUrl);
+          handleNewUrl(res.data);
+          setLongUrl("");
         })
         .catch(err => {
           setErrors("API Server Down");
@@ -50,7 +53,7 @@ function UrlForm() {
         />
         {shortUrl && (
           <Message
-            header="Success! Your Shortly Url Created"
+            header="Success! Your Shortly Url is ..."
             content={
               <a href={shortUrl} target="_blank" rel="noopener noreferrer">
                 {shortUrl}
