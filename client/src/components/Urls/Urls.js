@@ -9,14 +9,15 @@ class Urls extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      urlList: [],
-      newUrl: false
+      urlList: []
     };
     this.handleNewUrl = this.handleNewUrl.bind(this);
   }
 
-  handleNewUrl() {
-    this.setState();
+  handleNewUrl(newUrl) {
+    const oldUrlList = this.state.urlList;
+    const newUrlList = [...oldUrlList, newUrl];
+    this.setState({ urlList: newUrlList });
   }
 
   componentDidMount() {
@@ -37,7 +38,13 @@ class Urls extends React.Component {
     const top5urls = urlList.sort((a, b) => b.visits - a.visits).slice(0, 5);
     return (
       <Segment inverted>
-        <UrlsShortenForm />
+        <UrlsShortenForm handleNewUrl={this.handleNewUrl} />
+        <Divider horizontal>
+          <Header as="h4" inverted>
+            <Icon name="sort amount down" inverted />
+            Top 5 Visited Short.ly Links
+          </Header>
+        </Divider>
         <UrlScoreBoard urls={top5urls} />
         <Divider horizontal>
           <Header as="h4" inverted>
