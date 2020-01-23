@@ -9,24 +9,25 @@ class Urls extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      urlList: []
+      urls: [],
+      loading: true
     };
     this.handleNewUrl = this.handleNewUrl.bind(this);
   }
 
   handleNewUrl(newUrl) {
-    const oldUrlList = this.state.urlList;
-    const newUrlList = [...oldUrlList, newUrl];
-    this.setState({ urlList: newUrlList });
+    const oldUrls = this.state.urls;
+    const newUrls = [...oldUrls, newUrl];
+    this.setState({ urls: newUrls });
   }
 
   componentDidMount() {
     const dataBaseUrl = "http://localhost:5000/api/urls/";
     axios
       .get(dataBaseUrl)
-      .then(urlList => {
-        console.log(urlList.data);
-        this.setState({ urlList: urlList.data });
+      .then(urls => {
+        console.log(urls.data);
+        this.setState({ urls: urls.data, loading: false });
       })
       .catch(err => {
         console.log(err);
@@ -34,8 +35,8 @@ class Urls extends React.Component {
   }
 
   render() {
-    const { urlList } = this.state;
-    const top5urls = urlList.sort((a, b) => b.visits - a.visits).slice(0, 5);
+    const { urls, loading } = this.state;
+    const top5urls = urls.sort((a, b) => b.visits - a.visits).slice(0, 5);
     return (
       <Segment inverted>
         <UrlsShortenForm handleNewUrl={this.handleNewUrl} />
@@ -45,14 +46,14 @@ class Urls extends React.Component {
             Top 5 Visited Short.ly Links
           </Header>
         </Divider>
-        <UrlScoreBoard urls={top5urls} />
+        <UrlScoreBoard urls={top5urls} loading={loading} />
         <Divider horizontal>
           <Header as="h4" inverted>
             <Icon name="list alternate" inverted />
             Short.ly Urls Created
           </Header>
         </Divider>
-        <UrlList urlList={urlList} />
+        <UrlList urls={urls} loading={loading} />
       </Segment>
     );
   }
