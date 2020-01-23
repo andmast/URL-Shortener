@@ -1,39 +1,19 @@
 import React from "react";
 import { Table, Segment, Message } from "semantic-ui-react";
+import UrlTableRow from "./UrlTableRow";
+import UrlTableHeader from "./UrlTableHeader";
 
 function UrlList(props) {
-  const { urlList } = props;
+  const { urls, loading } = props;
 
   return (
-    <Segment>
+    <Segment loading={loading}>
       <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Long Url</Table.HeaderCell>
-            <Table.HeaderCell>Short Url</Table.HeaderCell>
-            <Table.HeaderCell>Date Created</Table.HeaderCell>
-            <Table.HeaderCell>Number of visits</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+        <UrlTableHeader />
         <Table.Body>
-          {urlList.length > 0 ? (
-            urlList.map(url => {
-              return (
-                <Table.Row key={url._id}>
-                  <Table.Cell>{url.longUrl}</Table.Cell>
-                  <Table.Cell>
-                    <a
-                      href={url.shortUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {url.shortUrl}
-                    </a>
-                  </Table.Cell>
-                  <Table.Cell>{url.date}</Table.Cell>
-                  <Table.Cell>{url.visits}</Table.Cell>
-                </Table.Row>
-              );
+          {urls ? (
+            urls.map(url => {
+              return <UrlTableRow url={url} key={url._id} />;
             })
           ) : (
             <Table.Row>
