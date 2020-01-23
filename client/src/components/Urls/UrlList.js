@@ -39,7 +39,15 @@ function UrlList() {
                 return (
                   <Table.Row>
                     <Table.Cell>{url.longUrl}</Table.Cell>
-                    <Table.Cell>{url.shortUrl}</Table.Cell>
+                    <Table.Cell>
+                      <a
+                        href={url.shortUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {url.shortUrl}
+                      </a>
+                    </Table.Cell>
                     <Table.Cell>{url.date}</Table.Cell>
                     <Table.Cell>{url.visits}</Table.Cell>
                   </Table.Row>
