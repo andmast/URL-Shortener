@@ -8,6 +8,7 @@ function UrlForm() {
   const dataBaseUrl = "http://localhost:5000/api/urls/shorten";
   const [longUrl, setLongUrl] = useState("");
   const [errors, setErrors] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,8 +19,9 @@ function UrlForm() {
           longUrl: longUrl
         })
         .then(res => {
+          setShortUrl(res.data.shortUrl);
           setErrors("");
-          console.log(res);
+          console.log(res.data.shortUrl);
         })
         .catch(err => {
           setErrors("API Server Down");
@@ -46,6 +48,17 @@ function UrlForm() {
             size: "massive"
           }}
         />
+        {shortUrl && (
+          <Message
+            header="Success! Your Shortly Url Created"
+            content={
+              <a href={shortUrl} target="_blank" rel="noopener noreferrer">
+                {shortUrl}
+              </a>
+            }
+            color="green"
+          />
+        )}
         {errors && <Message header="Error!" content={errors} color="red" />}
       </Form>
     </Segment>
