@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Container, Table, Segment, Message } from "semantic-ui-react";
 
-function UrlList() {
-  const dataBaseUrl = "http://localhost:5000/api/urls/";
-  const [urls, setUrls] = useState([]);
-
-  const fetchData = () => {
-    axios
-      .get(dataBaseUrl)
-      .then(urlList => {
-        setUrls(urlList.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+function UrlList(props) {
+  const { urlList } = props;
 
   return (
     <Segment>
@@ -34,10 +17,10 @@ function UrlList() {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {urls.length > 0 ? (
-              urls.map(url => {
+            {urlList.length > 0 ? (
+              urlList.map(url => {
                 return (
-                  <Table.Row>
+                  <Table.Row key={url._id}>
                     <Table.Cell>{url.longUrl}</Table.Cell>
                     <Table.Cell>
                       <a
@@ -54,7 +37,11 @@ function UrlList() {
                 );
               })
             ) : (
-              <Message header="Error!" content="Server Down" color="red" />
+              <Table.Row>
+                <Table.Cell>
+                  <Message header="Error!" content="Server Down" color="red" />
+                </Table.Cell>
+              </Table.Row>
             )}
           </Table.Body>
         </Table>
