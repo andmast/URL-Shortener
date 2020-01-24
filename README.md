@@ -51,4 +51,6 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 
 7. [Connect to Your Cluster using Node.js](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/)
 
-![Click Connect](Images/Markdown/click_connect.png)Click Connect
+![Click Connect](Images/Markdown/click_connect.png) Click Connect Tab
+![Click Connect your Application Tab](Images/Markdown/connect_application.png) Click Connect your Application Tab
+![Click Connect your Application Tab](Images/Markdown/connection_string.png) Copy Connection String
