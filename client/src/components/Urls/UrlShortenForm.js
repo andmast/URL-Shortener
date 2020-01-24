@@ -22,7 +22,6 @@ function UrlForm(props) {
         .then(res => {
           setShortUrl(res.data.shortUrl);
           setErrors("");
-          console.log(res.data.shortUrl);
           handleNewUrl(res.data);
           setLongUrl("");
         })
