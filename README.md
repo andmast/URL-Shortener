@@ -29,3 +29,15 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 #### Considerations:
 
 - You can choose to rank based on number of times requested vs number of times submitted
+
+# Setup
+
+1. Fork and clone repo into your machine
+
+2. ```
+   npm install
+   cd client
+   npm install
+   cd ..
+
+   ```
