@@ -50,6 +50,26 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 
 - You can choose to rank based on number of times requested vs number of times submitted
 
+## Dependencies
+
+### Server
+
+- config - "^3.2.4",
+- express - "^4.17.1"
+- metaget - "^1.0.6"
+- mongoose - "^5.8.7"
+- shortid - "^2.2.15",
+- valid-url - "^1.0.9"
+
+### Client
+
+- axios - "^0.19.1",
+- react - "^16.12.0",
+- react-dom - "^16.12.0",
+- react-scripts - "3.3.0",
+- semantic-ui-react - "^0.88.2",
+- valid-url - "^1.0.9"
+
 # Setup
 
 1. Fork and clone repo into your machine
