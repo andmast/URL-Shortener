@@ -1,5 +1,17 @@
 # Short.ly url shortener
 
+## Preview
+
+![Full site](Images/Markdown/full_preview.png)
+
+![Scoreboard](Images/Markdown/scoreboard.png)
+
+![Full Url List](Images/Markdown/full_url_list.png)
+
+![Validating Url with Http(s)](Images/Markdown/error_handling_invalid_url.png)
+
+![Success](Images/Markdown/success.png)
+
 ## Yuhu Project
 
 ### Part 1 (Backend).
