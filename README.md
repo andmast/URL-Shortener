@@ -51,4 +51,4 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 
 7. [Connect to Your Cluster using Node.js](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/)
 
-- ![Click Connect]("/Images/Markdown/click_connect.png")
+- ![Click Connect](/Images/Markdown/click_connect.png)
