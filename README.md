@@ -4,11 +4,19 @@
 
 ![Full site](Images/Markdown/full_preview.png)
 
+### Top 5 visited Short.ly Links
+
 ![Scoreboard](Images/Markdown/scoreboard.png)
+
+### All Short.ly Links
 
 ![Full Url List](Images/Markdown/full_url_list.png)
 
+### Error handling
+
 ![Validating Url with Http(s)](Images/Markdown/error_handling_invalid_url.png)
+
+### Success
 
 ![Success](Images/Markdown/success.png)
 
