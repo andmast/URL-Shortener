@@ -41,4 +41,14 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
    cd ..
    ```
 
-3. [Create an MONGODB ATLAS Account](https://docs.atlas.mongodb.com/tutorial/create-atlas-account/ "MonogoDB Atlas")
+3. [Create an MONGODB ATLAS Account](https://docs.atlas.mongodb.com/tutorial/create-atlas-account/)
+
+4. [Deploy a Free Tier Cluster](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/)
+
+5. [Whitelist Your Connection IP Address](https://docs.atlas.mongodb.com/tutorial/whitelist-connection-ip-address/)
+
+6. [Create a MongoDB User for Your Cluster](https://docs.atlas.mongodb.com/tutorial/create-mongodb-user-for-cluster/)
+
+7. [Connect to Your Cluster using Node.js](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/)
+
+- ![Click Connect]("/Images/Markdown/click_connect.png")
