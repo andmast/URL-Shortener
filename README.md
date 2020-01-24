@@ -34,10 +34,8 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 
 1. Fork and clone repo into your machine
 
-2. ```
-   npm install
+2. ```npm install
    cd client
    npm install
    cd ..
-
    ```
