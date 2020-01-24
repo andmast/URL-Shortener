@@ -3,6 +3,7 @@ const router = require("express").Router();
 const shortid = require("shortid");
 const validUrl = require("valid-url");
 const config = require("config");
+// const metaget = require("metaget");
 
 // Load URL Model
 const Url = require("../models/Url");
@@ -45,6 +46,13 @@ router.post("/shorten", (req, res) => {
 
   if (validUrl.isUri(longUrl)) {
     const shortUrl = baseUrl + "/" + urlCode;
+    // metaget.fetch(longUrl, (err, meta_response) => {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log(meta_response["og:image"]);
+    //   }
+    // });
 
     url = new Url({
       longUrl,
