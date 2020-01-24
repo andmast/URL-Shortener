@@ -34,8 +34,11 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 
 1. Fork and clone repo into your machine
 
-2. ```npm install
+2. ```
+   npm install
    cd client
    npm install
    cd ..
    ```
+
+3. [Create an MONGODB ATLAS Account](https://docs.atlas.mongodb.com/tutorial/create-atlas-account/ "MonogoDB Atlas")
