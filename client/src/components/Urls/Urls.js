@@ -36,21 +36,21 @@ class Urls extends React.Component {
 
   render() {
     const { urls, loading } = this.state;
-    const top5urls = urls.sort((a, b) => b.visits - a.visits).slice(0, 5);
+    const top5urls = [...urls].sort((a, b) => b.visits - a.visits).slice(0, 5);
     return (
       <Segment inverted>
         <UrlsShortenForm handleNewUrl={this.handleNewUrl} />
         <Divider horizontal>
-          <Header as="h4" inverted>
-            <Icon name="sort amount down" inverted />
+          <Header as="h4" color="orange" inverted>
+            <Icon name="sort amount down" color="orange" inverted />
             Top 5 Visited Short.ly Links
           </Header>
         </Divider>
         <UrlScoreBoard urls={top5urls} loading={loading} />
-        <Divider horizontal>
-          <Header as="h4" inverted>
-            <Icon name="list alternate" inverted />
-            Short.ly Urls Created
+        <Divider horizontal section>
+          <Header as="h4" inverted color="orange">
+            <Icon name="list alternate" color="orange" inverted />
+            All Short.ly Links Created
           </Header>
         </Divider>
         <UrlList urls={urls} loading={loading} />

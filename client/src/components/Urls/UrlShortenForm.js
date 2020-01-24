@@ -36,7 +36,7 @@ function UrlForm(props) {
   };
 
   return (
-    <Segment size="massive" inverted>
+    <Segment inverted>
       <Form onSubmit={handleSubmit} style={{ margin: "5em" }}>
         <Input
           placeholder="Submit your url"
@@ -44,16 +44,16 @@ function UrlForm(props) {
           onChange={e => setLongUrl(e.target.value)}
           fluid
           action={{
-            color: "green",
+            color: "orange",
             labelPosition: "right",
             icon: "send",
             content: "Shorten",
-            size: "massive"
+            size: "big"
           }}
         />
         {shortUrl && (
           <Message
-            header="Success! Your Shortly Url is ..."
+            header="Success! Your Shortly link is ..."
             content={
               <a href={shortUrl} target="_blank" rel="noopener noreferrer">
                 {shortUrl}

@@ -1,30 +1,23 @@
 import React from "react";
-import { Container, Divider, List, Segment } from "semantic-ui-react";
+import { Container, List, Segment } from "semantic-ui-react";
 
 export default () => (
-  <div>
-    <Segment
-      inverted
-      vertical
-      style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
-    >
-      <Container textAlign="center">
-        <Divider inverted section />
-        <List horizontal inverted divided link size="small">
-          <List.Item as="a" href="#">
-            Site Map
-          </List.Item>
-          <List.Item as="a" href="#">
-            Contact Us
-          </List.Item>
-          <List.Item as="a" href="#">
-            Terms and Conditions
-          </List.Item>
-          <List.Item as="a" href="#">
-            Privacy Policy
-          </List.Item>
-        </List>
-      </Container>
-    </Segment>
-  </div>
+  <Segment inverted vertical>
+    <Container textAlign="center">
+      <List horizontal inverted divided link size="small">
+        <List.Item as="a" href="#">
+          Site Map
+        </List.Item>
+        <List.Item as="a" href="#">
+          Contact Us
+        </List.Item>
+        <List.Item as="a" href="#">
+          Terms and Conditions
+        </List.Item>
+        <List.Item as="a" href="#">
+          Privacy Policy
+        </List.Item>
+      </List>
+    </Container>
+  </Segment>
 );
