@@ -54,3 +54,12 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
 ![Click Connect](Images/Markdown/click_connect.png) Click Connect Tab
 ![Click Connect your Application Tab](Images/Markdown/connect_application.png) Click Connect your Application Tab
 ![Click Connect your Application Tab](Images/Markdown/connection_string.png) Copy Connection String
+
+8. Using the default.example.json in /config as a guide create a default.json file and add in your connection string filling out the password section with your newly created user and password.
+
+```
+{
+  "mongoURI": "mongodb+srv://<user>:<password>@cluster0-cecdk.mongodb.net/test?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}
+```
