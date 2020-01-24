@@ -5,11 +5,12 @@
 ### Part 1 (Backend).
 
 Add API endpoints that allow a user to submit a URL and access a shortened version.
-Considerations:
-• What pieces of data do we care about storing? What if we wanted statistics?
-• Should the data be mutable?
-• How long should the shortened part of the URL be? Could it be dynamically
-sized?
+
+### Considerations:
+
+- What pieces of data do we care about storing? What if we wanted statistics?
+- Should the data be mutable?
+- How long should the shortened part of the URL be? Could it be dynamically sized?
 
 ### Part 2 (Front end) .
 
