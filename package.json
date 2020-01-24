@@ -4,8 +4,9 @@
   "description": "url-shortener",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "server": "nodemon index",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\"  \"npm run client\" "
   },
   "repository": {
     "type": "git",
