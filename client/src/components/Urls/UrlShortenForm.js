@@ -11,6 +11,7 @@ function UrlForm(props) {
   const [errors, setErrors] = useState("");
   const [shortUrl, setShortUrl] = useState("");
 
+  // Posting longURL to API and handleNewUrl going back to add newly created shortly link to list
   const handleSubmit = e => {
     e.preventDefault();
     if (validUrL.isUri(longUrl)) {

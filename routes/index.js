@@ -3,7 +3,7 @@ const router = require("express").Router();
 const Url = require("../models/Url");
 
 // @route     GET /:code
-// @desc      Redirect to long/original URL
+// @desc      Redirect to long/original URL and count visits
 router.get("/:code", (req, res) => {
   Url.findOne({ urlCode: req.params.code })
     .then(doc => {

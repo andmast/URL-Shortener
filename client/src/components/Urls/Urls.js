@@ -15,12 +15,14 @@ class Urls extends React.Component {
     this.handleNewUrl = this.handleNewUrl.bind(this);
   }
 
+  // Handling a valid submit from URLShortenForm to add newly created to the UrlList
   handleNewUrl(newUrl) {
     const oldUrls = this.state.urls;
     const newUrls = [...oldUrls, newUrl];
     this.setState({ urls: newUrls });
   }
 
+  // Fetching data from API
   componentDidMount() {
     const dataBaseUrl = "http://localhost:5000/api/urls/";
     axios
@@ -36,7 +38,10 @@ class Urls extends React.Component {
 
   render() {
     const { urls, loading } = this.state;
+
+    // Sorting Top 5 Urls
     const top5urls = [...urls].sort((a, b) => b.visits - a.visits).slice(0, 5);
+
     return (
       <Segment inverted>
         <UrlsShortenForm handleNewUrl={this.handleNewUrl} />

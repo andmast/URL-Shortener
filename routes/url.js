@@ -3,11 +3,14 @@ const router = require("express").Router();
 const shortid = require("shortid");
 const validUrl = require("valid-url");
 const config = require("config");
+
+//Todo Using Metaget to get metaData
 // const metaget = require("metaget");
 
 // Load URL Model
 const Url = require("../models/Url");
 
+// date formating options.
 const dateOptions = {
   weekday: "long",
   year: "numeric",
@@ -15,6 +18,7 @@ const dateOptions = {
   day: "numeric"
 };
 
+// Cors Handling
 router.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -44,8 +48,10 @@ router.post("/shorten", (req, res) => {
   // Create url code
   const urlCode = shortid.generate();
 
+  // Checking  longUrl is valid
   if (validUrl.isUri(longUrl)) {
     const shortUrl = baseUrl + "/" + urlCode;
+    //TODO get metaData from url
     // metaget.fetch(longUrl, (err, meta_response) => {
     //   if (err) {
     //     console.log(err);
