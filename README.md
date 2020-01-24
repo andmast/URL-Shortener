@@ -63,3 +63,9 @@ This section can be considered a nice-to-have. Add a scoreboard to the landing p
   "baseUrl": "http://localhost:5000"
 }
 ```
+
+9. Start up server and client by running conncurrently command `npm run dev`
+
+10. You can now view client in the browser.
+    Local: http://localhost:3000/
+    On Your Network: http://10.0.0.108:3000/
